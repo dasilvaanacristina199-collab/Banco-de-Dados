@@ -22,16 +22,14 @@ CREATE TABLE livros_autores (
 
 
 INSERT INTO livro (titulo, ano_publicacao, editora) 
-VALUES ('Pequena Sereia', 1837, 'DarkSide Books');
-
-INSERT INTO livro (titulo, ano_publicacao, editora) 
-VALUES ('O Pequeno Prícipe', 1943, 'Campainha das Letrinhas');
+VALUES ('Pequena Sereia', 1837, 'DarkSide Books'),
+('O Pequeno Prícipe', 1943, 'Campainha das Letrinhas');
 
 INSERT INTO autor (nome, pais_origem) 
 VALUES ('Hans Andersen', 'Dinamarca');
 
 INSERT INTO autor (nome, pais_origem) 
-VALUES ('Antoine Saint-Exupéry', 'Estados Unidos')
+VALUES ('Antoine Saint-Exupéry', 'Estados Unidos');
 
 INSERT INTO livros_autores (livro_IDFK, autor_IDFK) 
 VALUES (1, 1); 
@@ -45,3 +43,7 @@ SELECT * FROM autor;
 
 SELECT * FROM livros_autores;
 
+
+SELECT * from livro 
+inner join livros_autores on livros_autores.livro_IDFK = livro.id_livro
+inner join autor on autor.id_autor = livros_autores.autor_IDFK
